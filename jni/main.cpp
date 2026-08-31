@@ -70,7 +70,8 @@ uint64_t get_player_manager() {
     return fld;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+    if(argc > 1) pid = atoi(argv[1]);
     LOGI("ESP starting...");
     while(true) {
         if(pid < 0 || lib == 0) {
