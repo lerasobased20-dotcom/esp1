@@ -29,7 +29,7 @@ bool mem_read(uint64_t a, void* b, size_t l) {
     iovec loc[1], rem[1];
     loc[0].iov_base = b; loc[0].iov_len = l;
     rem[0].iov_base = (void*)a; rem[0].iov_len = l;
-    return process_vm_readv(pid, loc, 1, rem, 1) == (long)l;
+    return process_vm_readv(pid, loc, 1, rem, 1, 0) == (long)l;
 }
 
 template<typename T> T rpm(uint64_t a) { T v{}; mem_read(a, &v, sizeof(T)); return v; }
